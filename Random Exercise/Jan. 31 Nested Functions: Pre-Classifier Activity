@@ -14,6 +14,26 @@ example = fun(['hello', 'yes', 'me'])
 print(example)
 >>> 16
 
+""" 
+-------------------------------------------------------------------
+Similar. This time, the first nested function does not 
+take the (relatively) global argument as its argument, 
+and it is called in the second which does take the global argument. 
+-------------------------------------------------------------------
+"""
+
+def fun1(item):
+	def action(string):
+		return len(string) * 2
+	def compute(item):
+		x = item[-1]
+		return action(x)
+	return compute(item)
+
+r = fun1(['pd', 'np', 'sns', 'plt', 'talib'])
+print(r)
+>>> 10
+
 """ Quick exercise to refamiliarize with passing variables between class functions """ 
 
 class Thing(object):
