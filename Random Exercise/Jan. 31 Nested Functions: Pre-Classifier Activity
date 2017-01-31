@@ -1,0 +1,32 @@
+""" A simple nested function. Prints sum of length of array and length of first index, multiplied by 2. """
+
+def fun(item)
+  def do(item):
+    x = len(item)
+    return x
+  def other(item):
+    x = len(item[0])
+    return x
+  def final(item):
+    return do(item) + other(item)
+  return final(item) * 2
+example = fun(['hello', 'yes', 'me'])
+print(example)
+>>> 16
+
+""" Quick exercise to refamiliarize with passing variables between class functions """ 
+
+class Thing(object):
+	def __init__(self, ar):
+		self.ar = ar
+	def f(self):
+		self.leng = len(self.ar)
+		return self.leng
+	def p(self):
+		self.leng = self.f()
+		self.stri = str(self.leng)
+		return self.stri
+    
+y = Thing3([1,2,3,4,5])
+print(y.p())
+>>> 5
