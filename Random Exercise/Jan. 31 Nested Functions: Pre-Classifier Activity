@@ -50,3 +50,26 @@ class Thing(object):
 y = Thing3([1,2,3,4,5])
 print(y.p())
 >>> 5
+
+"""
+Here is the big one. Nested functions within a class.
+"""
+
+class Thing9(object):
+	def __init__(self, item):
+		self.item = item
+	def do(self):
+		def do1():
+			return len(self.item)
+		def do2():
+			return self.item + self.item
+		return do1(), do2()
+	def func(self):
+		return self.do()
+
+	
+instance = Thing9('hello')
+print(instance.do())
+>>> (5, 'hellohello')
+print(instance.fun())
+>>> (5, 'hellohello')
