@@ -2,7 +2,7 @@
 Continuation of other file. This is the most important part: Nested functions within a class.
 """
 
-class ForStrings(object):
+class ForString(object):
 	def __init__(self, item):
 		self.item = item
 	def do(self):
