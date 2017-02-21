@@ -1,0 +1,19 @@
+import numpy as np 
+from mpl_toolkits.mplot3d 
+import Axes3D 
+import matplotlib.pyplot as plt 
+from matplotlib import cm 
+
+x = np.arange(100)/ 101 
+y = np.sin(x) + np.cos(x) 
+X,Y = np.meshgrid(x,y) 
+Z = (X**2) / (Y**2) 
+W = np.sin(Z) 
+
+fig = plt.figure() 
+ax = fig.add_subplot(111,projection= '3d' ) 
+ax.plot_surface(X,Y, Z, facecolors=cm.Oranges(W))
+m = cm.ScalarMappable(cmap=cm.Oranges)
+m.set_array(W)
+cbar = plt.colorbar(m)
+plt.show()
