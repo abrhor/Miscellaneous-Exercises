@@ -14,6 +14,7 @@ Z = np.outer(z.T, z)
 a = X
 A = np.tanh(a) * 2.
 minn, maxx = A.min(), A.max()
+
 norm = colors.Normalize(minn, maxx)
 m = plt.cm.ScalarMappable(norm=norm, cmap='Oranges')
 m.set_array([])
