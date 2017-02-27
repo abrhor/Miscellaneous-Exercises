@@ -1,0 +1,26 @@
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib import colors
+
+fig = plt.figure()
+ax = fig.add_subplot(111,projection= '3d' )
+x = np.arange(100)/ 101
+y = np.sin(x) + np.cos(x)
+X,Y = np.meshgrid(x,y)
+z = np.exp(np.linspace(1,250, 100))
+Z = np.outer(z.T, z)
+a = X
+A = np.tanh(a) * 2.
+minn, maxx = A.min(), A.max()
+norm = colors.Normalize(minn, maxx)
+m = plt.cm.ScalarMappable(norm=norm, cmap='Oranges')
+m.set_array([])
+fcolors = m.to_rgba(A)
+
+ax.plot_surface(X,Y,Z, rstride=1, cstride=1, facecolors=fcolors, vmin=minn, vmax=maxx, shade=False)
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+plt.show()
