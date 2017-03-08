@@ -1,0 +1,33 @@
+>>> def zip2(array1, array2):
+...     s
+... 
+>>> 
+>>> def zip3(array1, array2, array3):
+...     zip2 = list(zip(array1,array2))
+...     combo = zip(zip2, array3)
+...     for i in combo:
+...             i[0].append(i[1])
+...     output = []
+...     for i in combo:
+...             output.append(i[0])
+...     return output
+... 
+>>> x = range(5)
+>>> y = range(5)
+>>> z = y
+>>> example = zip3(x,y,z)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 5, in zip3
+AttributeError: 'tuple' object has no attribute 'append'
+>>> print(list(zip(x,y)))
+[(0, 0), (1, 1), (2, 2), (3, 3), (4, 4)]
+>>> z = [1,4,5]
+>>> s = (1,4,5)
+>>> print(type(s))
+<type 'tuple'>
+>>> s[2] = 3
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> 
