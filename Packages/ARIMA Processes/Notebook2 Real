@@ -1,0 +1,37 @@
+>>> import numpy as np
+>>> from statsmodels.tsa import arima_model
+>>> from statsmodels.tsa.arima_process import arma_generate_sample
+>>> y = arma_generate_sample([1], [1], 100)
+
+>>> model = arima_model
+
+SyntaxError: invalid syntax
+>>> model = arima_model.ARMA(y, (1,1))
+>>> results = model.fit()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Users/student/anaconda/lib/python3.5/site-packages/statsmodels/tsa/arima_model.py", line 919, in fit
+    start_params = self._fit_start_params((k_ar, k_ma, k), method)
+  File "/Users/student/anaconda/lib/python3.5/site-packages/statsmodels/tsa/arima_model.py", line 556, in _fit_start_params
+    start_params = self._fit_start_params_hr(order)
+  File "/Users/student/anaconda/lib/python3.5/site-packages/statsmodels/tsa/arima_model.py", line 535, in _fit_start_params_hr
+    raise ValueError("The computed initial AR coefficients are not "
+ValueError: The computed initial AR coefficients are not stationary
+You should induce stationarity, choose a different model order, or you can
+pass your own start_params.
+>>> from statsmpdel.graphics.tsaplots import plot_acf
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named 'statsmpdel'
+>>> from statsmodels.graphics.tsaplots import plot_acf
+>>> import matplotlib.pyplot as plt
+>>> import seaborn as sns
+>>> plot_acf(y)
+<matplotlib.figure.Figure object at 0x113082198>
+                            ^
+SyntaxError: invalid syntax
+>>> def gen_process(p, n=100):
+...     ar = np.random.randn(1,p) + 1
+...     ar = ar + np.random.normal(2., 1.5, len(ar))
+...     x = np.random.normal(loc=50., scale=12., size=n)
+...     
