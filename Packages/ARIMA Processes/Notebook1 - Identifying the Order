@@ -1,0 +1,14 @@
+>>> import numpy as np
+>>> import matplotlib.pyplot as plt
+>>> from statsmodels.tsa import arima_model
+>>> np.random.seed(1)
+>>> from statsmodels.tsa.arima_process import arma_generate_sample
+>>> y = arma_generate_sample([2,3,3], [4,2], sample=100)
+>>> y = arma_generate_sample([2,3,3], [4,2], nsample=100)
+>>> plt.plot(np.arange(100), y)
+[<matplotlib.lines.Line2D object at 0x1179f6048>]
+>>> plt.show()
+>>> import seaborn as sns
+>>> x = range(4)
+>>> for i, j in zip(x,x):
+...     current_model = ARMA(endog=y, order=(i,j)
