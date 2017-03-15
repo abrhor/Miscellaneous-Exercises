@@ -1,0 +1,23 @@
+import numpy as np
+
+num = 0
+indices = []
+for i, n in np.ndenumerate(x[2]):
+    if np.isnan(n): 
+        num+=1
+        indices.append(i)
+    else: pass
+
+print(num)
+print(indices)
+
+
+"""
+
+-----------------------------------------------------------------------
+x is a tuple of numpy 1d arrays
+Goal is to find the quantity and location of all the NaNs in my array
+It's just an interesting bug I had to solve in my project
+-----------------------------------------------------------------------
+
+"""
